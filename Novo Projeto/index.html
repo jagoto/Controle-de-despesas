@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Despesas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Controle de Despesas</h1>
+        <p>Registre despesas e recebimentos para controlar seu saldo com facilidade.</p>
+    </header>
+
+    <main>
+        <section class="dashboard" aria-label="Resumo financeiro">
+            <div class="summary-card income">
+                <h2>Receitas</h2>
+                <p id="incomeTotal">R$ 0,00</p>
+            </div>
+            <div class="summary-card expense">
+                <h2>Despesas</h2>
+                <p id="expenseTotal">R$ 0,00</p>
+            </div>
+            <div class="summary-card balance">
+                <h2>Saldo</h2>
+                <p id="balanceTotal">R$ 0,00</p>
+            </div>
+        </section>
+
+        <section class="chart-card" aria-labelledby="grafico-transacoes">
+            <h2 id="grafico-transacoes">Distribuição de transações</h2>
+            <div class="chart-controls">
+                <div class="month-filter">
+                    <label for="monthFilter">Mês</label>
+                    <input type="month" id="monthFilter" name="monthFilter" aria-label="Selecionar mês para consulta">
+                </div>
+                <div class="year-filter">
+                    <label for="yearFilter">Ano</label>
+                    <input type="number" id="yearFilter" name="yearFilter" min="2000" max="2099" step="1" aria-label="Selecionar ano para consulta">
+                </div>
+            </div>
+            <div class="donut-wrapper">
+                <canvas id="donutChart" width="240" height="240" aria-label="Gráfico de anel de receitas e despesas"></canvas>
+                <p id="chartLabel" class="chart-label">Sem dados</p>
+            </div>
+            <div class="bar-wrapper">
+                <canvas id="barChart" width="640" height="280" aria-label="Gráfico de barras de despesas por mês"></canvas>
+                <p id="barLabel" class="chart-label">Despesas do ano</p>
+            </div>
+        </section>
+
+        <section class="entry-section" aria-labelledby="nova-transacao">
+            <h2 id="nova-transacao">Nova transação</h2>
+            <form id="transactionForm">
+                <label for="description">Descrição</label>
+                <input type="text" id="description" name="description" placeholder="Ex: Aluguel, salário" required>
+
+                <fieldset>
+                    <legend>Data e Valor</legend>
+                    <label for="date">
+                        Data
+                        <input type="date" id="date" name="date" required title="Selecione ou digite a data no formato dd/mm/aa">
+                    </label>
+                    <label for="amount">
+                        Valor
+                        <input type="number" id="amount" name="amount" placeholder="Ex: 2500.00" step="0.01" required>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Tipo</legend>
+                    <label>
+                        <input type="radio" name="type" value="income">
+                        Recebimento
+                        <input type="radio" name="type" value="expense" checked>
+                        Despesa
+                    </label>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitButton">Adicionar</button>
+                    <button type="button" id="cancelEditButton" class="secondary hidden">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="transactions" aria-labelledby="lista-transacoes">
+            <h2 id="lista-transacoes">Lista de transações</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionsList">
+                    <tr>
+                        <td colspan="5" class="empty">Nenhuma transação registrada.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

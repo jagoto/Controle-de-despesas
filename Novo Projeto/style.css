@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #0d1117 0%, #121b27 100%);
+    color: #f3f4f6;
+    min-height: 100vh;
+    padding: 24px 0;
+}
+
+header {
+    padding: 24px 20px 14px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    letter-spacing: 0.08em;
+}
+
+header p {
+    margin: 12px auto 0;
+    max-width: 560px;
+    color: #cbd5e1;
+}
+
+main {
+    display: grid;
+    gap: 20px;
+    padding: 0 20px 32px;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.dashboard {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.chart-card {
+    padding: 24px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.month-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.month-filter,
+.year-filter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.month-filter label,
+.year-filter label {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.month-filter input,
+.year-filter input {
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: rgba(15, 23, 42, 0.9);
+    color: #f8fafc;
+}
+
+.month-filter input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.donut-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+}
+
+#donutChart {
+    max-width: 100%;
+    width: 240px;
+    height: auto;
+}
+
+.bar-wrapper {
+    width: 100%;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+#barChart {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.chart-label {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.summary-card {
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.summary-card h2 {
+    margin: 0 0 14px;
+    font-size: 1rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.summary-card p {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.summary-card.income p {
+    color: #22c55e;
+}
+
+.summary-card.expense p {
+    color: #f87171;
+}
+
+.summary-card.balance p {
+    color: #60a5fa;
+}
+
+.entry-section,
+.transactions,
+.chart-card {
+    padding: 24px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.entry-section h2,
+.transactions h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+form {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+fieldset {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: rgba(15, 23, 42, 0.9);
+    color: #f8fafc;
+}
+
+input::placeholder {
+    color: rgba(203, 213, 225, 0.6);
+}
+
+small {
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) minmax(120px, 1fr);
+    gap: 14px;
+}
+
+input[type="date"] {
+    min-width: 140px;
+}
+
+input[type="number"] {
+    min-width: 140px;
+}
+
+.entry-section, .transactions, .chart-card {
+    width: 100%;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    padding: 14px 16px;
+}
+
+legend {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #e2e8f0;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(59, 130, 246, 0.25);
+}
+
+button.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+button.secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+thead th {
+    text-align: left;
+    padding: 12px 12px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+tbody tr {
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+tbody td {
+    padding: 16px 12px;
+    color: #e2e8f0;
+    vertical-align: middle;
+}
+
+tbody td.status-income {
+    color: #22c55e;
+}
+
+tbody td.status-expense {
+    color: #f87171;
+}
+
+tbody td button {
+    background: transparent;
+    color: #f8fafc;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+tbody td button:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.empty {
+    text-align: center;
+    color: #94a3b8;
+}
+
+@media (max-width: 920px) {
+    main {
+        padding: 0 16px 32px;
+    }
+}
+
+@media (max-width: 720px) {
+    .container,
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    fieldset {
+        flex-direction: column;
+    }
+}
