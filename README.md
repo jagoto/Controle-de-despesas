@@ -1,1 +1,1 @@
-Este projeto de controle de despesas é um site em html que permite voce registrar suas receitas e despesas mostrando a distriuicao em um grafico de Donut assim como a evolução das despesas ao longo do ano
+Este projeto de controle de despesas é um site em html que permite voce registrar suas receitas e despesas mostrando a distribuicao em um grafico de Donut assim como a evolução das despesas ao longo do ano
